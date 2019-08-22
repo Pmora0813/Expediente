@@ -44,7 +44,7 @@ namespace Expediente_Electronico.Models
 
         public int estado { get; set; }
 
-        public string estado_String { get; set; }
+      
         public int ID_TIPO_USUARIO { get; set; }
 
         public int id { get; set; }
