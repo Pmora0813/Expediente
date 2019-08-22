@@ -1,38 +1,44 @@
 ﻿
-@model  PagedList.IPagedList<Expediente_Electronico.Models.Especialidad>
+@model PagedList.IPagedList<Expediente_Electronico.Models.Consultorio>
 @using PagedList.Mvc;
+
 <link href="~/Content/PagedList.css" rel="stylesheet" />
+
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutAD.cshtml";
 }
 
-<h2>Especialidad</h2>
+<h2>Consultorio</h2>
 
 <p>
     <button type="button" class="btn btn-outline-info"
-            onclick="location.href='@Url.Action("Create", "Especialidad")'">
+            onclick="location.href='@Url.Action("Create", "Consultorio")'">
         Nuevo
     </button>
 </p>
 
-@using (Html.BeginForm("Index", "Especialidad", FormMethod.Get))
+@using (Html.BeginForm("Index", "Consultorio", FormMethod.Get))
 {
     <p>
         Ingresar el dato: @Html.TextBox("buscar", ViewBag.filtroActual as string)
         <input type="submit" value="Buscar" />
-
     </p>
 }
 
 
-
 <table class="table">
-
     <tr>
         <th>
+
             @Html.ActionLink("Descripción", "Index", new { dato = ViewBag.Descripcion1, filtro = ViewBag.filtroActual })
+
+        </th>
+
+        <th>
+
+            @Html.ActionLink("Numero", "Index", new { dato = ViewBag.Numero1, filtro = ViewBag.filtroActual })
         </th>
         <th></th>
     </tr>
@@ -44,14 +50,17 @@
                 @Html.DisplayFor(modelItem => item.descripcion)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.numero)
+            </td>
+            <td>
                 @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Detalles", "Details", new { id = item.id })
+                @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
             </td>
         </tr>
     }
 
 </table>
-
 <br />
 Pagina @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
 @Html.PagedListPager(Model, page => Url.Action("Index",
@@ -60,8 +69,10 @@ Pagina @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.Pa
 <div class="form-group">
     <div>
         <button type="button" class="btn btn-outline-success"
-                onclick="location.href='@Url.Action("Index", "Especialidad")'">
+                onclick="location.href='@Url.Action("Index", "Consultorio")'">
             Regresar
         </button>
     </div>
 </div>
+
+

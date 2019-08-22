@@ -1,6 +1,4 @@
-﻿using Expediente_Electronico.Models;
-using PagedList;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -8,15 +6,16 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-
-
+using PagedList;
+using Expediente_Electronico.Models;
 
 namespace Expediente_Electronico.Controllers
 {
-    public class EspecialidadController : Controller
+    public class ConsultorioController : Controller
     {
         private EMEPDB db = new EMEPDB();
 
+        // GET: Consultorios
         public ActionResult Index(string dato, string buscar, string filtro, int? page)
         {
             if (TempData.ContainsKey("mensaje"))
@@ -25,10 +24,10 @@ namespace Expediente_Electronico.Controllers
             }
 
             ViewBag.actual = dato;
+            ViewBag.Descripcion1 = string.IsNullOrEmpty(dato) ? "des" : "";
+            ViewBag.Numero1 = dato == "Numero" ? "num" : "Numero";
 
-            ViewBag.Descripcion1 = dato == "Descripcion" ? "des" : "Descripcion";
-
-            if (buscar != null)
+            if (buscar!= null)
             {
                 page = 1;
             }
@@ -39,62 +38,68 @@ namespace Expediente_Electronico.Controllers
 
             ViewBag.filtroActual = buscar;
 
-            var especialidad = from es in db.Especialidad
-                               select es;
+            var consultorio = from co in db.Consultorio
+                              select co;
 
             if (!string.IsNullOrEmpty(buscar))
             {
-                especialidad = especialidad.Where(es => es.descripcion.Contains(buscar));
+                consultorio = consultorio.Where(co => co.descripcion.Contains(buscar)
+                  || co.numero.Contains(buscar));
             }
-
 
             switch (dato)
             {
-
                 case "des":
-                    especialidad = especialidad.OrderByDescending(es => es.descripcion);
+                    consultorio = consultorio.OrderByDescending(co => co.descripcion);
+                    break;
+                case "Numero":
+                    consultorio = consultorio.OrderBy(co => co.numero);
+                    break;
+                case "num":
+                    consultorio = consultorio.OrderByDescending(co => co.numero);
                     break;
                 default:
-                    especialidad = especialidad.OrderBy(es => es.descripcion);
+                    consultorio = consultorio.OrderBy(co => co.descripcion);
                     break;
             }
 
             int pageSize = 3;
             int pageNumber = (page ?? 1);
-
-            return View(especialidad.ToPagedList(pageNumber, pageSize));
+            return View(consultorio.ToPagedList(pageNumber,pageSize));
         }
 
-        // GET: Especialidad/Details/5
+        // GET: Consultorio/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
-                TempData["mensaje"] = "Especifique la Especialidad";
+                TempData["mensaje"] = "Especifique un Consultorio";
                 return RedirectToAction("Index");
             }
-            Especialidad especialidad = db.Especialidad.Find(id);
-            if (especialidad == null)
+            Consultorio consultorio = db.Consultorio.Find(id);
+            if (consultorio == null)
             {
-                TempData["mensaje"] = "No existe la Especialidad";
+                TempData["mensaje"] = "No existe el Consultorio";
                 return RedirectToAction("Index");
             }
-            return View("Details", especialidad);
+        
+            return View("Details", consultorio);
         }
 
-        // GET: Especialidad/Create
+        // GET: Consultorio/Crear
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Especialidad/Create
+        // POST: Consultorio/Crear
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Especialidad objEspe)
-        {
+        public ActionResult Create(Expediente_Electronico.Models.Consultorio objConsul)   
+     {
+
             if (TempData.ContainsKey("mensaje"))
             {
                 ViewBag.Mensaje = TempData["mensaje"].ToString();
@@ -102,42 +107,44 @@ namespace Expediente_Electronico.Controllers
 
             try
             {
-                db.Especialidad.Add(objEspe);
+                db.Consultorio.Add(objConsul);
                 db.SaveChanges();
-                TempData["mensaje"] = "Especialidad guardado satisfactoriamente!";
+                TempData["mensaje"] = "Consultorio guardado satisfactoriamente!";
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception)
             {
-                TempData["mensaje"] = "Especilaidad NO registrado";
-                return View(objEspe);
+
+                TempData["mensaje"] = "Consultorio NO registrado";
+                return View(objConsul);
             }
         }
 
-        // GET: Especialidad/Edit/5
+        // GET: Consultorio/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
-                TempData["mensaje"] = "Especifique una Especialidad";
+                TempData["mensaje"] = "Especifique un Consultorio";
                 return RedirectToAction("Index");
             }
-            Especialidad especialidad = db.Especialidad.Find(id);
-            if (especialidad == null)
+            Consultorio consultorio = db.Consultorio.Find(id);
+            if (consultorio == null)
             {
-                TempData["mensaje"] = "No existe la Especialidad";
+                TempData["mensaje"] = "No existe el Consulotorio";
                 return RedirectToAction("Index");
             }
-            return View("Edit",especialidad);
+            return View("Edit",consultorio);
         }
 
-        // POST: Especialidad/Edit/5
+        // POST: Consultorio/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Especialidad objEsp)
+        public ActionResult Edit(Consultorio objCon)
         {
+
             if (TempData.ContainsKey("mensaje"))
             {
                 ViewBag.Mensaje = TempData["mensaje"].ToString();
@@ -145,44 +152,41 @@ namespace Expediente_Electronico.Controllers
 
             try
             {
-                db.Entry(objEsp).State = EntityState.Modified;
+                db.Entry(objCon).State = EntityState.Modified;
                 db.SaveChanges();
-
-                TempData["mensaje"] = "Especialidad actualizado satisfactoriamente!";
+                TempData["mensaje"] = "Consultorio actualizado satisfactoriamente!";
                 return RedirectToAction("Index");
             }
-            catch
+            catch 
             {
 
-                TempData["mensaje"] = "La Especilaidad no se logro actualizar";
-                return View("Edit", objEsp);
+                TempData["mensaje"] = "El Consultorio no se logro actualizar";
+                return View("Edit",objCon);
             }
-
-
         }
 
-        // GET: Especialidad/Delete/5
+        // GET: Consultorio/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Especialidad especialidad = db.Especialidad.Find(id);
-            if (especialidad == null)
+            Consultorio consultorio = db.Consultorio.Find(id);
+            if (consultorio == null)
             {
                 return HttpNotFound();
             }
-            return View(especialidad);
+            return View(consultorio);
         }
 
-        // POST: Especialidad/Delete/5
+        // POST: Consultorio/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Especialidad especialidad = db.Especialidad.Find(id);
-            db.Especialidad.Remove(especialidad);
+            Consultorio consultorio = db.Consultorio.Find(id);
+            db.Consultorio.Remove(consultorio);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

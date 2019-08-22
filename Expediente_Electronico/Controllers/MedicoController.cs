@@ -8,7 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
-namespace EMEP.Controllers
+namespace Expediente_Electronico.Controllers
 {
     public class MedicoController : Controller
     {

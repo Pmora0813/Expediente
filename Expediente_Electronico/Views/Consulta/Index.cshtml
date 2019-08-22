@@ -1,0 +1,88 @@
+﻿@model PagedList.IPagedList<Expediente_Electronico.Models.Consulta>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAD.cshtml";
+}
+
+<h2>Consulta</h2>
+
+<p>
+    <button type="button" class="btn btn-outline-info"
+            onclick="location.href='@Url.Action("Create", "Consulta")'">
+        Nuevo
+    </button>
+</p>
+
+@using (Html.BeginForm("Index", "Consulta", FormMethod.Get))
+{
+    <p>
+        Ingresar el dato: @Html.TextBox("buscar", ViewBag.filtroActual as string)
+        <input type="submit" value="Buscar" />
+    </p>
+}
+
+<table class="table">
+
+    <tr>
+        <th>
+
+            @Html.ActionLink("Medico", "Index", new { dato = ViewBag.Medico1, filtro = ViewBag.filtroActual })
+        </th>
+        <th>
+
+            @Html.ActionLink("Especialidad", "Index", new { dato = ViewBag.Espe, filtro = ViewBag.filtroActual })
+        </th>
+        <th>
+            Consultorio
+
+        <th>
+
+            Precio
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.Medico.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especialidad.descripcion)
+            </td>
+            <td style="text-align:center;">
+
+                @Html.DisplayFor(modelItem => item.Consultorio.numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+Pagina @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, dato = ViewBag.actual, filtro = ViewBag.filtroActual }))
+
+
+<div class="form-group">
+    <div>
+        <button type="button" class="btn btn-outline-success"
+                onclick="location.href='@Url.Action("Index", "Consulta")'">
+            Regresar
+        </button>
+    </div>
+</div>
