@@ -216,8 +216,7 @@ namespace Expediente_Electronico.Controllers
 
             try
             {
-                using (EMEPDB db = new EMEPDB())
-                {
+                
                     var administradorDB = db.Administrador.Where(a => a.correo.Equals(correo) && a.contraseña.Equals(contrasenna)).FirstOrDefault();
                     var medicoDB = db.Medico.Where(a => a.correo.Equals(correo) && a.contrasenna.Equals(contrasenna)).FirstOrDefault();
                     var pacienteDB = db.Paciente.Where(a => a.correo.Equals(correo) && a.contrasenna.Equals(contrasenna)).FirstOrDefault();
@@ -243,7 +242,7 @@ namespace Expediente_Electronico.Controllers
                         Session["CorreoId"] = pacienteDB.correo.ToString();
                         return RedirectToAction("IndexPa_ASO", "Home");
                     }
-                }
+                
                 TempData["mensaje"] = "Datos invalidos, verifique";
                 return View();
             }
