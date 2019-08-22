@@ -31,11 +31,17 @@
                 </li>
                 <li class="nav-item">
 
-                    @Html.ActionLink("Medicos", "Index", "Medico", new { area = "" }, new { @class = "nav-link" })
+                    @Html.ActionLink("Registro de Medicos", "Index", "Medico", new { area = "" }, new { @class = "nav-link" })
                     @*<a class="nav-link" href="#"> <font style="vertical-align: inherit;"> <font style="vertical-align: inherit;"> Tour </font> </font> </a>*@
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("Registro de Consulta", "Index", "Consulta", new { area = "" }, new { @class = "nav-link" })
+                    @Html.ActionLink("Especialidades", "Index", "Especialidad", new { area = "" }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Consultorios", "Index", "Consultorio", new { area = "" }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Consultas", "Index", "Consulta", new { area = "" }, new { @class = "nav-link" })
                 </li>
             </ul>
             @Html.Partial("_PartialAdmin")

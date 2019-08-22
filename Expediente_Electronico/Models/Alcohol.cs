@@ -26,8 +26,7 @@ namespace Expediente_Electronico.Models
         public string observaciones { get; set; }
 
         public int ID_EXPEDIENTE { get; set; }
-
-       
+        
         public virtual Expediente Expediente { get; set; }
     }
 }
