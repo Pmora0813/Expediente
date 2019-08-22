@@ -17,7 +17,7 @@ namespace Expediente_Electronico.Controllers
         // GET: Medico
         public ActionResult Index()
         {
-            
+
             if (TempData.ContainsKey("mensaje"))
             {
                 ViewBag.Mensaje = TempData["mensaje"].ToString();
@@ -125,6 +125,12 @@ namespace Expediente_Electronico.Controllers
         // GET: Medico/Create
         public ActionResult Create()
         {
+            List<SelectListItem> sexolist = new List<SelectListItem>();
+            sexolist.Add(new SelectListItem() { Text = "Masculino", Value = "Masculino" });
+            sexolist.Add(new SelectListItem() { Text = "Femenino", Value = "Masculino" });
+            sexolist.Add(new SelectListItem() { Text = "Otro", Value = "Masculino" });
+            ViewBag.Opcion = sexolist;
+
             ViewBag.ID_TIPO_USUARIO = new SelectList(db.Tipo_Usuario, "id", "descripcion");
             return View();
         }
@@ -136,8 +142,16 @@ namespace Expediente_Electronico.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Medico medico)
         {
+
             try
             {
+                List<SelectListItem> sexolist = new List<SelectListItem>();
+                sexolist.Add(new SelectListItem() { Text = "Masculino", Value = "1" });
+                sexolist.Add(new SelectListItem() { Text = "Femenino", Value = "2" });
+                sexolist.Add(new SelectListItem() { Text = "Otro", Value = "3" });
+                ViewBag.Opcion = sexolist;
+
+
                 medico.ID_TIPO_USUARIO = 2;
                 medico.estado = 1;
                 medico.estado_String = "Activo";
@@ -158,6 +172,7 @@ namespace Expediente_Electronico.Controllers
         // GET: Medico/Edit/5
         public ActionResult Edit(int? id)
         {
+
             if (id == null)
             {
                 TempData["mensaje"] = "Especifique el medico.";
@@ -178,6 +193,11 @@ namespace Expediente_Electronico.Controllers
                 TempData["mensaje"] = "Medico no encontrado.";
                 return RedirectToAction("Index");
             }
+            List<SelectListItem> sexolist = new List<SelectListItem>();
+            sexolist.Add(new SelectListItem() { Text = "Masculino", Value = "1" });
+            sexolist.Add(new SelectListItem() { Text = "Femenino", Value = "2" });
+            sexolist.Add(new SelectListItem() { Text = "Otro", Value = "3" });
+            ViewBag.Opcion = sexolist;
             ViewBag.ID_TIPO_USUARIO = new SelectList(db.Tipo_Usuario, "id", "descripcion", medico.ID_TIPO_USUARIO);
             return View(medico);
         }
@@ -189,6 +209,7 @@ namespace Expediente_Electronico.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Medico medico)
         {
+
             try
             {
                 db.Entry(medico).State = EntityState.Modified;
@@ -199,7 +220,11 @@ namespace Expediente_Electronico.Controllers
             }
             catch
             {
-
+                List<SelectListItem> sexolist = new List<SelectListItem>();
+                sexolist.Add(new SelectListItem() { Text = "Masculino", Value = "1" });
+                sexolist.Add(new SelectListItem() { Text = "Femenino", Value = "2" });
+                sexolist.Add(new SelectListItem() { Text = "Otro", Value = "3" });
+                ViewBag.Opcion = sexolist;
                 ViewBag.ID_TIPO_USUARIO = new SelectList(db.Tipo_Usuario, "id", "descripcion", medico.ID_TIPO_USUARIO);
                 return View(medico);
             }
@@ -208,6 +233,8 @@ namespace Expediente_Electronico.Controllers
 
         public ActionResult EditMe(int? id)
         {
+
+
             if (id == null)
             {
 
@@ -219,6 +246,11 @@ namespace Expediente_Electronico.Controllers
 
                 TempData["mensaje"] = "Medico no entontrado.";
             }
+            List<SelectListItem> sexolist = new List<SelectListItem>();
+            sexolist.Add(new SelectListItem() { Text = "Masculino", Value = "1" });
+            sexolist.Add(new SelectListItem() { Text = "Femenino", Value = "2" });
+            sexolist.Add(new SelectListItem() { Text = "Otro", Value = "3" });
+            ViewBag.Opcion = sexolist;
             ViewBag.ID_TIPO_USUARIO = new SelectList(db.Tipo_Usuario, "id", "descripcion", medico.ID_TIPO_USUARIO);
             return View(medico);
         }
@@ -227,6 +259,11 @@ namespace Expediente_Electronico.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditMe(Medico medico)
         {
+            List<SelectListItem> sexolist = new List<SelectListItem>();
+            sexolist.Add(new SelectListItem() { Text = "Masculino", Value = "1" });
+            sexolist.Add(new SelectListItem() { Text = "Femenino", Value = "2" });
+            sexolist.Add(new SelectListItem() { Text = "Otro", Value = "3" });
+            ViewBag.Opcion = sexolist;
             try
             {
                 db.Entry(medico).State = EntityState.Modified;
