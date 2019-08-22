@@ -9,6 +9,7 @@ namespace Expediente_Electronico.Models
     [Table("Medicamento")]
     public partial class Medicamento
     {
+        public string estado_String { get; set; }
         public int id { get; set; }
 
         [Required]

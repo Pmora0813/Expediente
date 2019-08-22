@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_LayoutMED.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Estado</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+
 <div>
     <h4>Medico</h4>
     <hr />
@@ -52,13 +52,7 @@
             @Html.DisplayFor(model => model.s_Apellido)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.contrasenna)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.contrasenna)
-        </dd>
+        <
 
         <dt>
             @Html.DisplayNameFor(model => model.sexo)
@@ -69,11 +63,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.estado)
+            @Html.DisplayNameFor(model => model.estado_String)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.estado)
+            @Html.DisplayFor(model => model.estado_String)
         </dd>
 
         <dt>
@@ -91,8 +85,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "IndexMe")
+            <input type="submit" value="Estado" class="btn btn-primary" /> |
+            @Html.ActionLink("Regresar", "IndexMe")
         </div>
     }
 </div>

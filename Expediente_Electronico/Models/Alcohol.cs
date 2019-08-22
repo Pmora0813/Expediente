@@ -12,7 +12,7 @@ namespace Expediente_Electronico.Models
         public int id { get; set; }
 
         public int activo { get; set; }
-
+        public string estado_String { get; set; }
         public int? inicio { get; set; }
 
         public int? frecuencia { get; set; }

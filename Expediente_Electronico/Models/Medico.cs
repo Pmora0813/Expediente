@@ -22,7 +22,7 @@ namespace Expediente_Electronico.Models
         [Required]
         [StringLength(50)]
         public string cedula { get; set; }
-
+        public string estado_String { get; set; }
         [Required]
         [StringLength(50)]
         public string nombre { get; set; }

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutMED.cshtml";
 }
 
-<h2>DetailsMe</h2>
+<h2>Detalles</h2>
 
 <div>
     <h4>Medico</h4>
@@ -51,14 +51,7 @@
             @Html.DisplayFor(model => model.s_Apellido)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.contrasenna)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.contrasenna)
-        </dd>
-
+      
         <dt>
             @Html.DisplayNameFor(model => model.sexo)
         </dt>
@@ -67,13 +60,7 @@
             @Html.DisplayFor(model => model.sexo)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.estado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.estado)
-        </dd>
+       
 
         <dt>
             @Html.DisplayNameFor(model => model.Tipo_Usuario.descripcion)
@@ -86,6 +73,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "EditMe", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "IndexMe")
+    @Html.ActionLink("Editar", "EditMe", new { id = Model.id }) |
+    @Html.ActionLink("Regresar", "IndexMe")
 </p>

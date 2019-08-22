@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutAD.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Detalles</h2>
 
 <div class="card border-light mb-3 col-md-8" style="max-width: 18rem;">
    <div class="card-header"><h4>Medico</h4></div> 
@@ -53,13 +53,7 @@
                     @Html.DisplayFor(model => model.s_Apellido)
                 </dd>
 
-                <dt class="card-title">
-                    @Html.DisplayNameFor(model => model.contrasenna)
-                </dt>
-
-                <dd class="card-text">
-                    @Html.DisplayFor(model => model.contrasenna)
-                </dd>
+              
 
                 <dt class="card-title">
                     @Html.DisplayNameFor(model => model.sexo)
@@ -70,7 +64,7 @@
                 </dd>
 
                 <dt class="card-title">
-                    @Html.DisplayNameFor(model => model.estado)
+                    @Html.DisplayNameFor(model => model.estado_String)
                 </dt>
 
                 <dd class="card-text">
@@ -89,6 +83,6 @@
     </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar", "Index")
 </p>

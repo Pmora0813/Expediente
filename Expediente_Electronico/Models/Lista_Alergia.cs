@@ -23,7 +23,7 @@ namespace Expediente_Electronico.Models
         public int ID_CATEGORIA { get; set; }
 
         public int estado { get; set; }
-
+        public string estado_String { get; set; }
         [StringLength(50)]
         public string reaccion { get; set; }
 

@@ -14,7 +14,7 @@ namespace Expediente_Electronico.Models
 
         [StringLength(50)]
         public string nombre { get; set; }
-
+        public string estado_String { get; set; }
         public int? minutos { get; set; }
 
         public int? cant_veces { get; set; }

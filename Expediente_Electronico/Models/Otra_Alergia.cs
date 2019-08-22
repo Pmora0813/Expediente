@@ -13,7 +13,7 @@ namespace Expediente_Electronico.Models
         [Required]
         [StringLength(50)]
         public string descripcion { get; set; }
-
+        public string estado_String { get; set; }
         public int? estado { get; set; }
 
         [StringLength(50)]

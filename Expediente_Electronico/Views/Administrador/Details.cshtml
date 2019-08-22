@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutAD.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Detalles</h2>
 
 <div>
     <h4>Administrador</h4>
@@ -27,21 +27,8 @@
             @Html.DisplayFor(model => model.correo)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.contraseña)
-        </dt>
+       
 
-        <dd>
-            @Html.DisplayFor(model => model.contraseña)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.estado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.estado)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.estado_String)
@@ -54,6 +41,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar", "Index")
 </p>

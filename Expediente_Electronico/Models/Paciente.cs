@@ -46,6 +46,7 @@ namespace Expediente_Electronico.Models
         public string sexo { get; set; }
 
         public int estado { get; set; }
+        public string estado_String { get; set; }
 
         public int ID_TIPO_USUARIO { get; set; }
 

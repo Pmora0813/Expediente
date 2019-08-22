@@ -9,7 +9,7 @@ namespace Expediente_Electronico.Models
     public partial class Otra_Actividad
     {
         public int id { get; set; }
-
+        public string estado_String { get; set; }
         public int activo { get; set; }
 
         [StringLength(50)]

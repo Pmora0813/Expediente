@@ -66,6 +66,7 @@ namespace Expediente_Electronico.Models
         public int ID_TIPO_USUARIO { get; set; }
 
         public virtual Tipo_Usuario Tipo_Usuario { get; set; }
+        public string estado_String { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Paciente_Dueño_Asociado> Paciente_Dueño_Asociado { get; set; }

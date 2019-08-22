@@ -10,7 +10,7 @@ namespace Expediente_Electronico.Models
     public partial class Fumador
     {
         public int id { get; set; }
-
+        public string estado_String { get; set; }
         public int activo { get; set; }
 
         public int? cant_cigarrillos { get; set; }

@@ -15,7 +15,7 @@ namespace Expediente_Electronico.Models
             AgendaCita = new HashSet<AgendaCita>();
             RegistrarCita = new HashSet<RegistrarCita>();
         }
-
+        public string estado_String { get; set; }
         public int id { get; set; }
 
         [Required]

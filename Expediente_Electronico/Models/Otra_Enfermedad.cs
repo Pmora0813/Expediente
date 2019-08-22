@@ -20,6 +20,7 @@ namespace Expediente_Electronico.Models
 
         [StringLength(50)]
         public string img { get; set; }
+        public string estado_String { get; set; }
 
         public int? ID_EXPEDIENTE { get; set; }
 

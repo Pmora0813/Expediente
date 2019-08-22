@@ -17,7 +17,7 @@ namespace Expediente_Electronico.Models
         public string ID_PACIENTE { get; set; }
 
         public int estado { get; set; }
-
+        public string estado_String { get; set; }
         [Required]
         [StringLength(50)]
         public string ID_PACIENTE_COMPARTE { get; set; }

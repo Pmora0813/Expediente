@@ -24,7 +24,7 @@ namespace Expediente_Electronico.Models
         public int ID_CATEGORIA { get; set; }
 
         public int estado { get; set; }
-
+        public string estado_String { get; set; }
         public int? ID_EXPEDIENTE { get; set; }
 
         [Required]

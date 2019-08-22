@@ -24,14 +24,12 @@
         <th>
             @Html.DisplayNameFor(model => model.s_Apellido)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.contrasenna)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.sexo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.estado)
+            @Html.DisplayNameFor(model => model.estado_String)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Tipo_Usuario.descripcion)
@@ -57,9 +55,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.s_Apellido)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.contrasenna)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.sexo)
             </td>
@@ -70,9 +66,9 @@
                 @Html.DisplayFor(modelItem => item.Tipo_Usuario.descripcion)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditMe", new { id = item.id }) |
-                @Html.ActionLink("Details", "DetailsMe", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                @Html.ActionLink("Editar", "EditMe", new { id = item.id }) |
+                @Html.ActionLink("Detalles", "DetailsMe", new { id = item.id }) |
+                @Html.ActionLink("Estado", "Delete", new { id = item.id })
             </td>
         </tr>
     }
