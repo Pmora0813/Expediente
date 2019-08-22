@@ -1,0 +1,36 @@
+﻿@model Expediente_Electronico.Models.Especialidad
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAD.cshtml";
+}
+
+<br />
+<h2>Detalle de Especialidad</h2>
+<br />
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+    </dl>
+</div>
+
+<p>
+    <button type="button" class="btn btn-outline-primary"
+            onclick="location.href='@Url.Action("Edit", "Especialidad",new { id = Model.id })'">
+        Editar
+    </button>
+
+    <button type="button" class="btn btn-outline-success"
+            onclick="location.href='@Url.Action("Index", "Especialidad")'">
+        Regresar
+    </button>
+</p>
