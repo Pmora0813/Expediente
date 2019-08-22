@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutAD.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Lista de Medicos</h2>
 
 <p>
     @Html.ActionLink("Nuevo Medico", "Create")
@@ -22,7 +22,7 @@
             @Html.DisplayNameFor(model => model.cedula)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.estado_String)
+            @Html.DisplayNameFor(model => model.estado)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.nombre)
@@ -34,7 +34,7 @@
             @Html.DisplayNameFor(model => model.s_Apellido)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.contrasenna)
+            @Html.DisplayNameFor(model => model.estado)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.sexo)
@@ -67,7 +67,7 @@
             @Html.DisplayFor(modelItem => item.s_Apellido)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.contrasenna)
+            @Html.DisplayFor(modelItem => item.estado_String)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.sexo)

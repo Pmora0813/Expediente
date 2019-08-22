@@ -70,13 +70,6 @@
             @Html.DisplayFor(model => model.estado_String)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Tipo_Usuario.descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tipo_Usuario.descripcion)
-        </dd>
 
     </dl>
 
@@ -85,7 +78,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Estado" class="btn btn-primary" /> |
+            <input type="submit" value="Cambiar Estado" class="btn btn-primary" /> |
             @Html.ActionLink("Regresar", "IndexMe")
         </div>
     }

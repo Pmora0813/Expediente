@@ -243,7 +243,7 @@ namespace Expediente_Electronico.Controllers
                         return RedirectToAction("IndexPa_ASO", "Home");
                     }
                 
-                TempData["mensaje"] = "Datos invalidos, Verifique con el Administrador";
+                //TempData["mensaje"] = "Datos invalidos, Verifique con el Administrador";
                 return View();
             }
             catch

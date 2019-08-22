@@ -35,6 +35,7 @@ namespace Expediente_Electronico.Controllers
                 {
                     medico.estado_String = "Inactivo";
                 }
+                
             }
             return View(medicos.ToList());
         }
@@ -117,7 +118,7 @@ namespace Expediente_Electronico.Controllers
             if (medico == null)
             {
                 TempData["mensaje"] = "Medico no encontrado.";
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexMed");
             }
             return View(medico);
         }
@@ -209,6 +210,7 @@ namespace Expediente_Electronico.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Medico medico)
         {
+           
 
             try
             {
@@ -220,11 +222,7 @@ namespace Expediente_Electronico.Controllers
             }
             catch
             {
-                List<SelectListItem> sexolist = new List<SelectListItem>();
-                sexolist.Add(new SelectListItem() { Text = "Masculino", Value = "1" });
-                sexolist.Add(new SelectListItem() { Text = "Femenino", Value = "2" });
-                sexolist.Add(new SelectListItem() { Text = "Otro", Value = "3" });
-                ViewBag.Opcion = sexolist;
+                
                 ViewBag.ID_TIPO_USUARIO = new SelectList(db.Tipo_Usuario, "id", "descripcion", medico.ID_TIPO_USUARIO);
                 return View(medico);
             }
@@ -299,7 +297,7 @@ namespace Expediente_Electronico.Controllers
             if (medico == null)
             {
                 TempData["mensaje"] = "Medico no encontrado.";
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexMed");
             }
             return View(medico);
         }
@@ -322,7 +320,7 @@ namespace Expediente_Electronico.Controllers
             db.SaveChanges();
             TempData["mensaje"] = "Estado Actualizado.";
             db.SaveChanges();
-            return RedirectToAction("Delete");
+            return RedirectToAction("IndexMed");
         }
 
         protected override void Dispose(bool disposing)

@@ -88,12 +88,12 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.estado)
+            @Html.DisplayFor(model => model.estado_String)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar", "Index")
 </p>

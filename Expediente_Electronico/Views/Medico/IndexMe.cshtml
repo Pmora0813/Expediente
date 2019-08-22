@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutMED.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Medicos</h2>
 
 <table class="dl-horizontal">
     <tr>
@@ -68,7 +68,7 @@
             <td>
                 @Html.ActionLink("Editar", "EditMe", new { id = item.id }) |
                 @Html.ActionLink("Detalles", "DetailsMe", new { id = item.id }) |
-                @Html.ActionLink("Estado", "Delete", new { id = item.id })
+                @Html.ActionLink("Estado", "DeleteMe", new { id = item.id })
             </td>
         </tr>
     }
