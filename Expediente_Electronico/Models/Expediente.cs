@@ -27,13 +27,20 @@ namespace Expediente_Electronico.Models
 
         public int id { get; set; }
 
+
+        [Display(Name = "Fecha")]
         [Column(TypeName = "date")]
+        [DataType(DataType.Date, ErrorMessage = "Debe ser tipo Fecha")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
+          ApplyFormatInEditMode = true)]
         public DateTime fecha { get; set; }
 
         public int estado { get; set; }
 
-        [Required]
+      
         [StringLength(50)]
+        [Display(Name = "Paciente")]
+        [Required(ErrorMessage = "Seleccione el Paciente")]
         public string ID_PACIENTE { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -50,7 +57,7 @@ namespace Expediente_Electronico.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Expediente_Alergia> Expediente_Alergia { get; set; }
-
+        [Display(Name = "Paciente")]
         public virtual Paciente Paciente { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

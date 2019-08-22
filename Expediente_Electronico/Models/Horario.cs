@@ -18,11 +18,18 @@ namespace Expediente_Electronico.Models
         public string estado_String { get; set; }
         public int id { get; set; }
 
+
+
+        [Display(Name = "Hora")]
         [Required]
+        [DataType(DataType.Time, ErrorMessage = "Debe ser tipo Hora")]
+        [DisplayFormat(DataFormatString = "{0:t}",
+           ApplyFormatInEditMode = true)]
         [StringLength(50)]
         public string hora { get; set; }
 
-        [Required]
+        [Display(Name = "Am/Pm")]
+        [DataType(DataType.Time, ErrorMessage = "Seleccione eñ formato")]
         [StringLength(50)]
         public string am_pm { get; set; }
 

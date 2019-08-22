@@ -15,10 +15,13 @@ namespace Expediente_Electronico.Models
             Lista_Enfermedad = new HashSet<Lista_Enfermedad>();
         }
 
+     
+
+        [Key]
         public int id { get; set; }
 
-        [Required]
-        [StringLength(50)]
+
+        [Display(Name = "Descripción")]
         public string descripcion { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

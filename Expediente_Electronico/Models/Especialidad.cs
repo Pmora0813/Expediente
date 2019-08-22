@@ -17,8 +17,10 @@ namespace Expediente_Electronico.Models
 
         public int id { get; set; }
 
-        [Required]
+  
         [StringLength(50)]
+        [Display(Name = "Descripción")]
+        [Required(ErrorMessage = "Debe escribir la descripción")]
         public string descripcion { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

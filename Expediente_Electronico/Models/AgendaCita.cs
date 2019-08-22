@@ -11,6 +11,7 @@ namespace Expediente_Electronico.Models
     {
         public int id { get; set; }
 
+
         public int idHora { get; set; }
 
         [Column(TypeName = "text")]

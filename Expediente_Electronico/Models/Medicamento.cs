@@ -9,19 +9,27 @@ namespace Expediente_Electronico.Models
     [Table("Medicamento")]
     public partial class Medicamento
     {
+        [Display(Name = "Estado")]
+        [Required(ErrorMessage = "Seleccione el estado")]
         public string estado_String { get; set; }
         public int id { get; set; }
 
-        [Required]
+    
         [StringLength(50)]
+        [Display(Name = "Nombre")]
+        [Required(ErrorMessage = "Debe de escribir el nombre")]
         public string nombre { get; set; }
 
         [Required]
-        [StringLength(50)]
+               [Column(TypeName = "text")]
+        [Display(Name = "Observaciones")]
+        [DataType(DataType.MultilineText)]
         public string descripcion { get; set; }
 
+        [Display(Name = "Expediente")]
+        [Required(ErrorMessage = "Seleccione el expediente")]
         public int ID_EXPEDIENTE { get; set; }
-
+        [Display(Name = "Expediente")]
         public virtual Expediente Expediente { get; set; }
     }
 }
