@@ -1,0 +1,130 @@
+﻿@model Expediente_Electronico.Models.Paciente_Asociado
+
+@{
+    ViewBag.Title = "DetailsASO";
+    Layout = "~/Views/Shared/_LayoutP_Aso.cshtml";
+}
+
+<h2>Detalles del Paciente Asociado</h2>
+
+<div>
+    <h4>Paciente  Asociado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.p_Apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.s_Apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.s_Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contrasenna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contrasenna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_nacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_nacimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_sangre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_sangre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recidencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recidencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contacto_emergencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contacto_emergencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.parentesco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.parentesco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo_Usuario.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_Usuario.descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Regresar", "Index")
+</p>

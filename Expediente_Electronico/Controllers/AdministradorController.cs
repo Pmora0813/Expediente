@@ -255,12 +255,22 @@ namespace Expediente_Electronico.Controllers
 
         public ActionResult RegistroPacientes()
         {
+            List<SelectListItem> sexolist = new List<SelectListItem>();
+            sexolist.Add(new SelectListItem() { Text = "Masculino", Value = "1" });
+            sexolist.Add(new SelectListItem() { Text = "Femenino", Value = "2" });
+            sexolist.Add(new SelectListItem() { Text = "Otro", Value = "3" });
+            ViewBag.Opcion = sexolist;
             ViewBag.listaTipo = new SelectList(db.Tipo_Usuario, "id", "descripcion");
             return View();
         }
         [HttpPost]
         public ActionResult RegistroPacientes(Paciente paciente)
         {
+            List<SelectListItem> sexolist = new List<SelectListItem>();
+            sexolist.Add(new SelectListItem() { Text = "Masculino", Value = "1" });
+            sexolist.Add(new SelectListItem() { Text = "Femenino", Value = "2" });
+            sexolist.Add(new SelectListItem() { Text = "Otro", Value = "3" });
+            ViewBag.Opcion = sexolist;
             if (TempData.ContainsKey("mensaje"))
             {
                 ViewBag.Mensaje = TempData["mensaje"].ToString();
@@ -287,9 +297,11 @@ namespace Expediente_Electronico.Controllers
 
                     paciente.ID_TIPO_USUARIO = 3;
                     paciente.estado = 1;
+                    paciente.estado_String = "Activo";
                     db.Paciente.Add(paciente);
-                    TempData["mensaje"] = "Paciente guardado con éxito.";
                     db.SaveChanges();
+
+                    TempData["mensaje"] = "Paciente guardado con éxito.";
                     return RedirectToAction("InicioSesion");
 
                 }

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Expediente_Electronico.Models.Paciente>
+
+@{
+    ViewBag.Title = "Indexp";
+    Layout = "~/Views/Shared/_LayoutPa.cshtml";
+}
+
+<h2>Paciente Principal</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.s_Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo_Usuario.descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cedula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.s_Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado_String)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_Usuario.descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.cedula }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.cedula })
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Nuevo Paciente Asociado", "Index","Paciente_Asociado")
+</p>

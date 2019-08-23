@@ -31,7 +31,7 @@ namespace Expediente_Electronico.Controllers
 
                     medico.estado_String = "Activo";
                 }
-                if (medico.estado == 2)
+                if (medico.estado == 0)
                 {
                     medico.estado_String = "Inactivo";
                 }
@@ -61,7 +61,7 @@ namespace Expediente_Electronico.Controllers
 
                         medico.estado_String = "Activo";
                     }
-                    if (medico.estado == 2)
+                    if (medico.estado ==0)
                     {
                         medico.estado_String = "Inactivo";
                     }
@@ -87,7 +87,7 @@ namespace Expediente_Electronico.Controllers
 
                 medico.estado_String = "Activo";
             }
-            if (medico.estado == 2)
+            if (medico.estado == 0)
             {
                 medico.estado_String = "Inactivo";
             }
@@ -111,7 +111,7 @@ namespace Expediente_Electronico.Controllers
 
                 medico.estado_String = "Activo";
             }
-            if (medico.estado == 2)
+            if (medico.estado == 0)
             {
                 medico.estado_String = "Inactivo";
             }
@@ -185,7 +185,7 @@ namespace Expediente_Electronico.Controllers
 
                 medico.estado_String = "Activo";
             }
-            if (medico.estado == 2)
+            if (medico.estado == 0)
             {
                 medico.estado_String = "Inactivo";
             }
@@ -290,7 +290,31 @@ namespace Expediente_Electronico.Controllers
 
                 medico.estado_String = "Activo";
             }
-            if (medico.estado == 2)
+            if (medico.estado == 0)
+            {
+                medico.estado_String = "Inactivo";
+            }
+            if (medico == null)
+            {
+                TempData["mensaje"] = "Medico no encontrado.";
+                return RedirectToAction("IndexMed");
+            }
+            return View(medico);
+        }
+        public ActionResult DeleteMe(int? id)
+        {
+            if (id == null)
+            {
+                TempData["mensaje"] = "Especifique el medico.";
+                return RedirectToAction("Index");
+            }
+            Medico medico = db.Medico.Find(id);
+            if (medico.estado == 1)
+            {
+
+                medico.estado_String = "Activo";
+            }
+            if (medico.estado == 0)
             {
                 medico.estado_String = "Inactivo";
             }
@@ -320,9 +344,28 @@ namespace Expediente_Electronico.Controllers
             db.SaveChanges();
             TempData["mensaje"] = "Estado Actualizado.";
             db.SaveChanges();
-            return RedirectToAction("IndexMed");
+            return RedirectToAction("Index");
         }
 
+        [HttpPost, ActionName("DeleteMe")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmedMe(int id)
+        {
+            Medico medico = db.Medico.Find(id);
+            if (medico.estado == 1)
+            {
+                medico.estado = 0;
+
+            }
+            else
+            {
+                medico.estado = 1;
+            }
+            db.SaveChanges();
+            TempData["mensaje"] = "Estado Actualizado.";
+            db.SaveChanges();
+            return RedirectToAction("IndexMed");
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

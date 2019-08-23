@@ -1,25 +1,16 @@
-﻿@model Expediente_Electronico.Models.Medico
+﻿@model Expediente_Electronico.Models.Paciente
 
 @{
-    ViewBag.Title = "Delete";
-    Layout = "~/Views/Shared/_LayoutMED.cshtml";
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPa.cshtml";
 }
 
-<h2>Estado</h2>
-
+<h2>Detalles del Paciente</h2>
 
 <div>
-    <h4>Medico</h4>
+    <h4>Paciente</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.correo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.correo)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.cedula)
         </dt>
@@ -53,6 +44,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.contrasenna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contrasenna)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.sexo)
         </dt>
 
@@ -61,23 +60,24 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.estado_String)
+            @Html.DisplayNameFor(model => model.estado)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.estado_String)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo_Usuario.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_Usuario.descripcion)
+        </dd>
 
     </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Cambiar Estado" class="btn btn-primary" /> |
-            @Html.ActionLink("Regresar", "IndexMe")
-        </div>
-    }
 </div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.cedula }) |
+    @Html.ActionLink("Regresar", "Indexp")
+</p>

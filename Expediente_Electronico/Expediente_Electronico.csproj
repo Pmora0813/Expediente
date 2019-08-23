@@ -209,12 +209,18 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
+    <Compile Include="Controllers\AlcoholController.cs" />
+    <Compile Include="Controllers\CirugiaController.cs" />
     <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\ConsultorioController.cs" />
     <Compile Include="Controllers\EspecialidadController.cs" />
+    <Compile Include="Controllers\FumadorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MedicamentoController.cs" />
     <Compile Include="Controllers\MedicoController.cs" />
+    <Compile Include="Controllers\PacienteController.cs" />
+    <Compile Include="Controllers\Paciente_AsociadoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -404,6 +410,19 @@
     <Content Include="Views\Consulta\Details.cshtml" />
     <Content Include="Views\Consulta\Edit.cshtml" />
     <Content Include="Views\Consulta\Index.cshtml" />
+    <Content Include="Views\Paciente\Create.cshtml" />
+    <Content Include="Views\Paciente\Delete.cshtml" />
+    <Content Include="Views\Paciente\Details.cshtml" />
+    <Content Include="Views\Paciente\Edit.cshtml" />
+    <Content Include="Views\Paciente\Index.cshtml" />
+    <Content Include="Views\Paciente\Indexp.cshtml" />
+    <Content Include="Views\Paciente_Asociado\Create.cshtml" />
+    <Content Include="Views\Paciente_Asociado\Delete.cshtml" />
+    <Content Include="Views\Paciente_Asociado\Details.cshtml" />
+    <Content Include="Views\Paciente_Asociado\DetailsASO.cshtml" />
+    <Content Include="Views\Paciente_Asociado\Edit.cshtml" />
+    <Content Include="Views\Paciente_Asociado\Index.cshtml" />
+    <Content Include="Views\Paciente_Asociado\IndexASO.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

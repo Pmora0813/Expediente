@@ -1,28 +1,19 @@
-﻿@model IEnumerable<Expediente_Electronico.Models.Medico>
+﻿@model IEnumerable<Expediente_Electronico.Models.Paciente>
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutAD.cshtml";
+    Layout = "~/Views/Shared/_LayoutAd.cshtml";
 }
 
-<h2>Lista de Medicos</h2>
+<h2>Pacientes</h2>
 
 <p>
-    @Html.ActionLink("Nuevo Medico", "Create")
+    @Html.ActionLink("Nuevo Paciente", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Tipo_Usuario.descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.correo)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.cedula)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estado)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.nombre)
@@ -34,7 +25,7 @@
             @Html.DisplayNameFor(model => model.s_Apellido)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.estado)
+            @Html.DisplayNameFor(model => model.contrasenna)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.sexo)
@@ -42,22 +33,16 @@
         <th>
             @Html.DisplayNameFor(model => model.estado)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo_Usuario.descripcion)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Tipo_Usuario.descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.correo)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.cedula)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado_String)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.nombre)
@@ -69,7 +54,7 @@
             @Html.DisplayFor(modelItem => item.s_Apellido)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.estado_String)
+            @Html.DisplayFor(modelItem => item.contrasenna)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.sexo)
@@ -78,9 +63,12 @@
             @Html.DisplayFor(modelItem => item.estado_String)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.id }) |
-            @Html.ActionLink("Cambiar Estado", "Delete", new { id=item.id })
+            @Html.DisplayFor(modelItem => item.Tipo_Usuario.descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.cedula }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.cedula }) |
+            @Html.ActionLink("Cambiar Estado", "Delete", new { id=item.cedula })
         </td>
     </tr>
 }
