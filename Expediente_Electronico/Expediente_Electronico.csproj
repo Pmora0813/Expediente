@@ -423,6 +423,25 @@
     <Content Include="Views\Paciente_Asociado\Edit.cshtml" />
     <Content Include="Views\Paciente_Asociado\Index.cshtml" />
     <Content Include="Views\Paciente_Asociado\IndexASO.cshtml" />
+    <Content Include="Views\Alcohol\Create.cshtml" />
+    <Content Include="Views\Alcohol\Delete.cshtml" />
+    <Content Include="Views\Alcohol\Details.cshtml" />
+    <Content Include="Views\Alcohol\Edit.cshtml" />
+    <Content Include="Views\Alcohol\Index.cshtml" />
+    <Content Include="Views\Cirugia\Create.cshtml" />
+    <Content Include="Views\Cirugia\Delete.cshtml" />
+    <Content Include="Views\Cirugia\Details.cshtml" />
+    <Content Include="Views\Cirugia\Edit.cshtml" />
+    <Content Include="Views\Cirugia\Index.cshtml" />
+    <Content Include="Views\Fumador\Create.cshtml" />
+    <Content Include="Views\Fumador\Delete.cshtml" />
+    <Content Include="Views\Fumador\Details.cshtml" />
+    <Content Include="Views\Fumador\Edit.cshtml" />
+    <Content Include="Views\Fumador\Index.cshtml" />
+    <Content Include="Views\Medicamento\Create.cshtml" />
+    <Content Include="Views\Medicamento\Details.cshtml" />
+    <Content Include="Views\Medicamento\Edit.cshtml" />
+    <Content Include="Views\Medicamento\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

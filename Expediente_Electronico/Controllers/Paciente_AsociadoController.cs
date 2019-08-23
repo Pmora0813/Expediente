@@ -176,7 +176,6 @@ namespace Expediente_Electronico.Controllers
 
                 paciente_Asociado.estado = 1;
                 paciente_Asociado.ID_TIPO_USUARIO = 4;
-                paciente_Asociado.Tipo_Usuario
                 paciente_Asociado.estado_String = "Activo";             
                 db.Paciente_Asociado.Add(paciente_Asociado);
                 db.SaveChanges();

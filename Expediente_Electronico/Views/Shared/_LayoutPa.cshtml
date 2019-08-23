@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - EMEP</title>
 
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/jquery-3.4.1.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
@@ -37,12 +36,27 @@
                 <li class="nav-item">
                     @Html.ActionLink("Pacientes Asociados", "Index", "Paciente_Asociado", new { area = "" }, new { @class = "nav-link" })
                 </li>
-            </ul>
-            @Html.Partial("_PartialAdmin")
-            @*@Html.Partial("_PartialAdmin")*@
-            @*<div style="float:left" class="nav-item">
+                <li class="nav-item">
+                    @Html.ActionLink("Registro de Fumado", "Index", "Fumador", new { area = "" }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Registro de Cirugía", "Index", "Cirugia", new { area = "" }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Registro de Alcohol", "Index", "Alcohol", new { area = "" }, new { @class = "nav-link" })
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> <font style="vertical-align: inherit;"> <font style="vertical-align: inherit;"> Registro de Mediamentos </font> </font> </a>
+                </li>
+                
+                </ul>
+        </div>
+        @Html.Partial("_PartialAdmin")
+        @*@Html.Partial("_PartialAdmin")*@
+        @*<div style="float:left" class="nav-item">
 
-                </div>*@
+            </div>*@
         </div>
     </nav>
     @*MENU*@

@@ -6,13 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using EMEP.Models;
+using Expediente_Electronico.Models;
 
-namespace EMEP.Controllers
+namespace Expediente_Electronico.Controllers
 {
     public class MedicamentoController : Controller
     {
-        private EMEPEntities db = new EMEPEntities();
+        private EMEPDB db = new EMEPDB();
 
         // GET: Medicamento
         public ActionResult Index()

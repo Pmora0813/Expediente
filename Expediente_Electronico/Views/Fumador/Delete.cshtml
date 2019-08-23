@@ -1,0 +1,64 @@
+﻿@model Expediente_Electronico.Models.Fumador
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPa.cshtml";
+}
+
+<h2>Cambiar Estado Condición.</h2>
+
+<div>
+    <h4>Fumador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.activo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cant_cigarrillos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cant_cigarrillos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tiempo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tiempo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observaciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Expediente.ID_PACIENTE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Expediente.ID_PACIENTE)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Cambiar Estado" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

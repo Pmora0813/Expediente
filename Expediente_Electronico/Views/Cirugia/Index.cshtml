@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Expediente_Electronico.Models.Cirugia>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPa.cshtml";
+}
+
+<h2>Lista de Cirugías</h2>
+
+<p>
+    @Html.ActionLink("Nueva Cirugías", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.donde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Expediente.ID_PACIENTE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.donde)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Expediente.ID_PACIENTE)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.id }) |
+            @Html.ActionLink("Desactivar", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
